@@ -32,3 +32,4 @@ const startServer = () => {
 server.listen(PORT, startServer)
 
 // curl -X POST -F "video.mp4=@big2m.mp4" http://localhost:3000
+// curl -X POST -F "video.gif=@demo.gif" http://localhost:3000
