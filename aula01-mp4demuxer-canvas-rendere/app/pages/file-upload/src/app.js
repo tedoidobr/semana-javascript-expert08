@@ -15,3 +15,28 @@ view.cofigureOnFileChange(file => {
         view.updateElapsedTime(`Process took ${took.replace('ago', '')}`)
     }, 5000)
 })
+
+async function fakeFetch() {
+    const filePath = '/videos/frag_bunny.mp4'
+    const response = await fetch(filePath)
+    // traz o tamanho do arqivo
+    // const response = await fetch (filePath, {
+    //      method: "HEAD"
+    //})
+    //response.headers.get('content-length')
+    //debugger
+    const file = new File([await response.blod()], filePath, {
+        type: 'video/mp4',
+        lastModified: Date.now()
+    })
+    const event = new Event('change')
+    Reflect.defineProperty(
+        event,
+        'target',
+        { value: { files: [file] } }
+    )
+
+    document.getElementById('fileUpload').dispatchEvent(event)
+}
+
+fakeFetch()
