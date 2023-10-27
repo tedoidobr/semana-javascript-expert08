@@ -9,9 +9,9 @@ export default class View {
 
     #canvas = document.getElementById('preview-144p')
     constructor() {
-        this.configureBtnUpClic()
+        this.configureBtnUploadClic()
     }
-    s
+    
     parseBytesIntoMBAndGB(bytes) {
         const mb = bytes / (1024 * 1024)
         // if mb is greater than 1024, then convert to GB
@@ -21,7 +21,7 @@ export default class View {
         }
         return `${Math.round(mb)}MB`
     }
-    configureBtnUpClic() {
+    configureBtnUploadClic() {
         this.#btnUploadVideo.addEventListener('click', () => {
             // trigger file input
             this.#fileUpload.click()
