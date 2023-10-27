@@ -25,7 +25,7 @@ async function fakeFetch() {
     //})
     //response.headers.get('content-length')
     //debugger
-    const file = new File([await response.blod()], filePath, {
+    const file = new File([await response.blob()], filePath, {
         type: 'video/mp4',
         lastModified: Date.now()
     })
